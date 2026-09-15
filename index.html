@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Privacy-first browser file security scanner. Analyze files locally without uploading them.">
+  <title>ShieldScan — File Security Scanner</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <header class="topbar">
+    <a class="brand" href="./"><img src="assets/icon.svg" alt=""> ShieldScan</a>
+    <div class="privacy-pill">● Local analysis</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">BROWSER-BASED FILE ANALYSIS</div>
+      <h1>Scan files.<br><span>Stay private.</span></h1>
+      <p class="subtitle">Analyze files directly in your browser. Nothing is uploaded to a server in this version.</p>
+
+      <label class="dropzone" id="dropzone" for="fileInput">
+        <input id="fileInput" type="file" multiple hidden>
+        <div class="drop-icon">↥</div>
+        <div class="drop-title">Drop files here</div>
+        <div class="drop-subtitle">or tap to choose files</div>
+        <div class="drop-hint">SHA-256 • type detection • signatures • heuristics</div>
+      </label>
+    </section>
+
+    <section id="scanSection" class="panel hidden">
+      <div class="panel-head">
+        <div>
+          <div class="section-label">SCAN QUEUE</div>
+          <h2 id="queueTitle">Files</h2>
+        </div>
+        <button id="clearBtn" class="button ghost">Clear</button>
+      </div>
+      <div id="fileList" class="file-list"></div>
+      <button id="scanBtn" class="button primary full">Start scan</button>
+    </section>
+
+    <section id="resultsSection" class="panel hidden">
+      <div class="panel-head">
+        <div>
+          <div class="section-label">ANALYSIS</div>
+          <h2>Scan results</h2>
+        </div>
+        <button id="newScanBtn" class="button ghost">New scan</button>
+      </div>
+      <div id="results"></div>
+    </section>
+
+    <section class="info-grid">
+      <article class="info-card">
+        <div class="info-symbol">⌁</div>
+        <h3>Private by default</h3>
+        <p>File bytes stay in your browser. No upload endpoint is used by this static app.</p>
+      </article>
+      <article class="info-card">
+        <div class="info-symbol">#</div>
+        <h3>SHA-256</h3>
+        <p>Calculate a cryptographic file hash that can be compared with trusted threat intelligence.</p>
+      </article>
+      <article class="info-card">
+        <div class="info-symbol">!</div>
+        <h3>Heuristics</h3>
+        <p>Identify suspicious extensions, executable formats, double extensions and risky archive names.</p>
+      </article>
+    </section>
+
+    <div class="disclaimer">
+      <strong>Important:</strong> A clean result here does not prove that a file is malware-free.
+      This is a lightweight client-side analyzer, not a full antivirus engine or sandbox.
+    </div>
+  </main>
+
+  <footer>
+    <span>ShieldScan</span>
+    <span>Client-side analysis • GitHub Pages ready</span>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
